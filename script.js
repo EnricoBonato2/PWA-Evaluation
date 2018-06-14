@@ -11,8 +11,6 @@ function Controller($scope, $http) {
       .get("https://api.github.com/users/" + $scope.username)
       .success(function(data) {
         if (data.name == "") data.name = data.login;
-        if (data.company != null && data.location != null)
-          $scope.compAndLoc = true;
         if (data.company != null || data.location != null)
           $scope.compOrLoc = true;
         if (data.bio == "") $scope.bio = true;
